@@ -1,0 +1,380 @@
+EVOQUE PROJECT - COMPREHENSIVE DOCUMENTATION
+==========================================
+
+Table of Contents:
+-----------------
+1. Client Side Application
+2. Admin Panel
+3. Server Side Application
+4. Database Structure
+5. API Documentation
+6. Security Implementation
+7. Deployment Guidelines
+
+1. CLIENT SIDE APPLICATION
+-------------------------
+
+A. Technology Stack
+------------------
+- React.js (Frontend Framework)
+- Material-UI (UI Components)
+- Redux (State Management)
+- Axios (HTTP Client)
+- React Router (Navigation)
+- JWT (Authentication)
+
+B. Directory Structure
+---------------------
+/Client
+├── src/
+│   ├── components/
+│   │   ├── auth/
+│   │   ├── products/
+│   │   ├── cart/
+│   │   ├── checkout/
+│   │   └── common/
+│   ├── pages/
+│   ├── redux/
+│   ├── services/
+│   ├── utils/
+│   └── App.js
+├── public/
+└── package.json
+
+C. Key Features
+--------------
+1. User Authentication
+   - Registration
+   - Login
+   - Password Reset
+   - Profile Management
+
+2. Product Management
+   - Product Listing
+   - Product Details
+   - Product Search
+   - Category Filtering
+   - Product Reviews
+
+3. Shopping Cart
+   - Add/Remove Items
+   - Update Quantities
+   - Price Calculation
+   - Cart Persistence
+
+4. Checkout Process
+   - Shipping Information
+   - Payment Integration
+   - Order Summary
+   - Order Confirmation
+
+5. User Dashboard
+   - Order History
+   - Tracking Information
+   - Saved Addresses
+   - Wishlist Management
+
+D. State Management
+------------------
+1. Redux Store Structure
+   - auth: User authentication state
+   - products: Product listing and details
+   - cart: Shopping cart state
+   - orders: Order management
+   - ui: UI-related states
+
+2. Local Storage
+   - Cart Items
+   - User Token
+   - User Preferences
+
+2. ADMIN PANEL
+-------------
+
+A. Technology Stack
+------------------
+- React.js
+- Material-UI Admin Template
+- Chart.js (Analytics)
+- Redux (State Management)
+
+B. Directory Structure
+---------------------
+/admin
+├── src/
+│   ├── components/
+│   │   ├── dashboard/
+│   │   ├── products/
+│   │   ├── orders/
+│   │   ├── users/
+│   │   └── analytics/
+│   ├── layouts/
+│   ├── pages/
+│   ├── services/
+│   └── utils/
+└── package.json
+
+C. Key Features
+--------------
+1. Dashboard
+   - Sales Overview
+   - Recent Orders
+   - Top Products
+   - Customer Analytics
+   - Revenue Charts
+
+2. Product Management
+   - Product List View
+   - Add/Edit Products
+   - Bulk Operations
+   - Image Management
+   - Inventory Control
+
+3. Order Management
+   - Order List
+   - Order Details
+   - Status Updates
+   - Payment Information
+   - Shipping Management
+
+4. User Management
+   - Customer List
+   - User Details
+   - Role Management
+   - Activity Logs
+
+5. Analytics & Reports
+   - Sales Reports
+   - Inventory Reports
+   - Customer Reports
+   - Revenue Analytics
+
+3. SERVER SIDE APPLICATION
+-------------------------
+
+A. Technology Stack
+------------------
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Multer (File Upload)
+- Cloudinary (Image Storage)
+
+B. Directory Structure
+---------------------
+/Server
+├── config/
+│   ├── db.js
+│   └── config.js
+├── controllers/
+│   ├── authController.js
+│   ├── productController.js
+│   ├── orderController.js
+│   └── userController.js
+├── middleware/
+│   ├── auth.js
+│   ├── admin.js
+│   └── upload.js
+├── models/
+│   ├── User.js
+│   ├── Product.js
+│   ├── Order.js
+│   └── Category.js
+├── routes/
+│   ├── auth.js
+│   ├── products.js
+│   ├── orders.js
+│   └── users.js
+└── server.js
+
+C. API Endpoints
+---------------
+1. Authentication Routes (/api/auth)
+   - POST /register
+   - POST /login
+   - GET /profile
+   - POST /forgot-password
+   - POST /reset-password
+
+2. Product Routes (/api/products)
+   - GET / (List all products)
+   - GET /:id (Get single product)
+   - POST / (Create product)
+   - PUT /:id (Update product)
+   - DELETE /:id (Delete product)
+   - POST /upload-images (Upload product images)
+
+3. Order Routes (/api/orders)
+   - POST / (Create order)
+   - GET / (List orders)
+   - GET /:id (Get order details)
+   - PUT /:id/status (Update order status)
+   - GET /user/:userId (Get user orders)
+
+4. User Routes (/api/users)
+   - GET / (List users)
+   - GET /:id (Get user details)
+   - PUT /:id (Update user)
+   - DELETE /:id (Delete user)
+   - GET /stats (User statistics)
+
+D. Middleware Implementation
+--------------------------
+1. Authentication Middleware
+   - Token Validation
+   - Role Verification
+   - Request Authentication
+
+2. File Upload Middleware
+   - Image Processing
+   - File Size Validation
+   - File Type Validation
+
+3. Error Handling Middleware
+   - Error Logging
+   - Error Response
+   - Validation Errors
+
+4. DATABASE STRUCTURE
+--------------------
+
+A. User Schema
+-------------
+{
+  email: String (unique),
+  passwordHash: String,
+  fullName: String,
+  contactNo: String,
+  role: String,
+  addresses: [{
+    street: String,
+    city: String,
+    state: String,
+    postalCode: String
+  }],
+  createdAt: Date,
+  updatedAt: Date
+}
+
+B. Product Schema
+----------------
+{
+  name: String,
+  description: String,
+  price: Number,
+  category: ObjectId,
+  images: [String],
+  countInStock: Number,
+  rating: Number,
+  numReviews: Number,
+  reviews: [{
+    user: ObjectId,
+    rating: Number,
+    comment: String,
+    date: Date
+  }],
+  createdAt: Date,
+  updatedAt: Date
+}
+
+C. Order Schema
+--------------
+{
+  user: ObjectId,
+  items: [{
+    product: ObjectId,
+    quantity: Number,
+    price: Number
+  }],
+  totalAmount: Number,
+  shippingAddress: {
+    street: String,
+    city: String,
+    state: String,
+    postalCode: String
+  },
+  paymentMethod: String,
+  paymentResult: {
+    id: String,
+    status: String,
+    update_time: String,
+    email_address: String
+  },
+  status: String,
+  createdAt: Date,
+  updatedAt: Date
+}
+
+5. SECURITY IMPLEMENTATION
+------------------------
+
+A. Authentication
+----------------
+- JWT Token Based
+- Password Hashing (bcrypt)
+- Token Expiration
+- Refresh Token Mechanism
+
+B. Authorization
+---------------
+- Role-Based Access Control
+- Route Protection
+- Resource Access Control
+
+C. Data Protection
+-----------------
+- Input Validation
+- XSS Protection
+- CSRF Protection
+- Rate Limiting
+- Secure Headers
+
+6. DEPLOYMENT GUIDELINES
+-----------------------
+
+A. Environment Setup
+-------------------
+- Node.js Environment
+- MongoDB Setup
+- Environment Variables
+- SSL Certificates
+
+B. Deployment Process
+--------------------
+1. Backend Deployment
+   - Server Setup
+   - Database Migration
+   - Environment Configuration
+   - PM2 Process Management
+
+2. Frontend Deployment
+   - Build Process
+   - Static File Serving
+   - CDN Configuration
+   - Cache Management
+
+C. Monitoring
+------------
+- Error Logging
+- Performance Monitoring
+- User Analytics
+- Server Health Checks
+
+7. MAINTENANCE & UPDATES
+-----------------------
+
+A. Regular Tasks
+---------------
+- Database Backups
+- Log Rotation
+- Security Updates
+- Performance Optimization
+
+B. Scaling Considerations
+------------------------
+- Load Balancing
+- Database Scaling
+- Caching Strategy
+- CDN Implementation 

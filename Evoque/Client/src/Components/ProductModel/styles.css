@@ -1,0 +1,39 @@
+.sizes-section {
+    margin-bottom: 20px;
+}
+
+.sizes-section h6 {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.size-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.size-btn {
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+}
+
+.size-btn:not(.selected):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(255, 87, 34, 0.2);
+}
+
+.size-btn.selected {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(255, 87, 34, 0.3);
+    background-color: #E08E37 !important;
+    color: white !important;
+}
+
+/* Add hover effect for non-selected buttons */
+.size-btn:not(.selected) {
+    background-color: white !important;
+    color: #E08E37 !important;
+    border-color: #E08E37 !important;
+} 

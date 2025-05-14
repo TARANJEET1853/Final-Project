@@ -1,0 +1,111 @@
+.profile-container {
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+    background-color: #f5f5f5;
+}
+
+.profile-content {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-avatar {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-avatar .MuiAvatar-root {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    background-color: #E08E37;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 3px solid white;
+    transition: all 0.3s ease;
+}
+
+.profile-avatar .upload-button {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-avatar .upload-button:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.1);
+}
+
+.profile-header h2 {
+    color: #333;
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.profile-form .form-group {
+    margin-bottom: 25px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.profile-form .MuiOutlinedInput-root {
+    background-color: #f8f9fa;
+}
+
+.profile-form .MuiOutlinedInput-root.Mui-disabled {
+    background-color: #f1f3f5;
+}
+
+.profile-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 1rem;
+    }
+
+    .profile-content {
+        padding: 20px;
+    }
+
+    .profile-avatar .MuiAvatar-root {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .profile-avatar .upload-button {
+        padding: 6px;
+    }
+} 

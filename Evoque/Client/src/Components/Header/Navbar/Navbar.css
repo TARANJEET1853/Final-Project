@@ -1,0 +1,105 @@
+/* General Navbar Styles */
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Navbar items */
+  .nav-item {
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    color: black;
+    padding: 5px 10px;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+  }
+  
+  .dropdown-item {
+    font-size: 14px;
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f8f8;
+    border-radius: 3px;
+  }
+  
+  /* Hover effects */
+  .nav-item:hover {
+    color: #e08e37;
+  }
+  
+  /* Burger icon for small screens */
+  .burger-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .burger-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+  }
+  
+  /* Show burger icon on small screens */
+  @media (max-width: 768px) {
+    .burger-icon {
+      display: flex;
+    }
+  
+    .nav-list {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: white;
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+    }
+  
+    .nav-list.show {
+      display: flex;
+    }
+  }
+  

@@ -1,0 +1,99 @@
+.Homebanner-section{
+    position: relative;
+    overflow: hidden;
+}
+.Homebanner-section *{
+    outline: none !important;
+}
+.Homebanner-section .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    font-size: 0;
+    transition: all 0.3s ease;
+}
+
+.Homebanner-section .slick-prev {
+    left: 20px;
+}
+
+.Homebanner-section .slick-next {
+    right: 20px;
+}
+
+.Homebanner-section .slick-prev:before,
+.Homebanner-section .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    color: #000;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.Homebanner-section .slick-prev:before {
+    content: '←';
+}
+
+.Homebanner-section .slick-next:before {
+    content: '→';
+}
+
+.Homebanner-section .slick-arrow:hover {
+    background-color: #E08E37;
+}
+
+.Homebanner-section .slick-arrow:hover:before {
+    color: white;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .Homebanner-section .slick-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .Homebanner-section .slick-prev:before,
+    .Homebanner-section .slick-next:before {
+        font-size: 16px;
+    }
+
+    .Homebanner-section .slick-prev {
+        left: 10px;
+    }
+
+    .Homebanner-section .slick-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Homebanner-section .slick-arrow {
+        width: 25px;
+        height: 25px;
+    }
+
+    .Homebanner-section .slick-prev:before,
+    .Homebanner-section .slick-next:before {
+        font-size: 14px;
+    }
+}
+
+/* Ensure arrows are always visible */
+.Homebanner-section .slick-arrow.slick-prev,
+.Homebanner-section .slick-arrow.slick-next {
+    opacity: 1;
+    visibility: visible;
+}

@@ -1,0 +1,6 @@
+# Client environment variables
+Client/.env
+Client/.env.local
+Client/.env.development.local
+Client/.env.test.local
+Client/.env.production.local 
